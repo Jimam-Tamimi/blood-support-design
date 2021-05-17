@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home - Blood Support</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="js/fontawsome.js" ></script>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="css/OverlayScrollbars.min.css">
+
+    <!-- custom css  -->
+    <style>
+        .__blank {
+            transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            top: -62px !important;
+            right: -61px !important;
+            transform: scale(0) !important;
+
+        }
+
+        .__not-blank {
+            top: 40px !important;
+            right: 0px !important;
+            transform: scale(1) !important;
+
+        }
+    </style>
+
+   
+<style>
+    .details-section {
+        width: 48%;
+
+    }
+
+    .image-section {
+        width: 48%;
+        height: 100%;
+    }
+
+    .request-image {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    @media only screen and (max-width:670px) {
+        .my-cus-row {
+            flex-wrap: wrap;
+            flex-direction: column-reverse !important;
+        }
+
+        .image-section {
+            width: 90%;
+        }
+
+        .details-section {
+            width: 90%;
+
+        }
+
+        .act-button-grp {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .act-button-grp>button {
+            margin: 10px 0px;
+        }
+
+        .card-body {
+            padding: 0;
+        }
+    }
+
+    #help-form {
+        transition: all .5s;
+        left: 57%;
+        position: relative;
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    .help-form-show {
+        transform: scale(1) !important;
+        opacity: 1 !important;
+        left: 0 !important;
+    }
+
+    .select-donor-type {
+        transition: all .5s;
+        position: absolute;
+        bottom: 28%;
+        width: 90%;
+        left: 5%;
+        opacity: 1;
+    }
+
+    .select-donor-type-hide {
+        bottom: 100% !important;
+        opacity: 0 !important;
+        transform: scale(0) !important;
+
+    }
+
+    .profile-cont {
+        display: flex;
+        align-items: center;
+
+    }
+
+    .profile-cont .profile-img {
+
+        width: 40px;
+        border-radius: 200px;
+        height: 40px;
+        position: relative;
+        right: 10px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .profile {
+        max-width: 205px;
+    }
+</style>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <nav id="msg-nav-bar-rem" class="main-header navbar navbar-expand navbar-white navbar-light fixed-top ">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="/" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <!-- SEARCH FORM -->
+            <form class="form-inline ml-3">
+                <div class="input-group input-group-sm">
+                    <input class="form-control form-control-navbar" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-navbar" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <form id="form-id" class="nav-link"  action="/logout/" method="post">
+                       
+                        <a style="cursor:pointer;" id="submit" ><i class="fas fa-sign-out-alt"></i></a>
+                    </form>
+                </li>
+                <!-- Messages Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#" id="__message-icon">
+                        <i class="far fa-comments"></i>
+                        <span class="badge badge-danger navbar-badge">3</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right show __blank"
+                        id="__message-dropdown-menu">
+                        <a href="#" class="dropdown-item">
+                            <!-- Message Start -->
+                            <div class="media">
+                                <img src="dist/img/user1-128x128.jpg" alt="User Avatar"
+                                    class="img-size-50 mr-3 img-circle">
+                                <div class="media-body">
+                                    <h3 class="dropdown-item-title">
+                                        Brad Diesel
+                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">Call me whenever you can...</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                </div>
+                            </div>
+                            <!-- Message End -->
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <!-- Message Start -->
+                            <div class="media">
+                                <img src="dist/img/user8-128x128.jpg" alt="User Avatar"
+                                    class="img-size-50 img-circle mr-3">
+                                <div class="media-body">
+                                    <h3 class="dropdown-item-title">
+                                        John Pierce
+                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">I got your message bro</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                </div>
+                            </div>
+                            <!-- Message End -->
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <!-- Message Start -->
+                            <div class="media">
+                                <img src="dist/img/user3-128x128.jpg" alt="User Avatar"
+                                    class="img-size-50 img-circle mr-3">
+                                <div class="media-body">
+                                    <h3 class="dropdown-item-title">
+                                        Nora Silvester
+                                        <span class="float-right text-sm text-warning"><i
+                                                class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">The subject goes here</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                </div>
+                            </div>
+                            <!-- Message End -->
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                    </div>
+                </li>
+                <!-- Notifications Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#" id="__notification-icon">
+                        <i class="far fa-bell"></i>
+                        <span class="badge badge-warning navbar-badge">15</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right show __blank"
+                        id="__notification-dropdown-menu">
+                        <span class="dropdown-item dropdown-header">15 Notifications</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-envelope mr-2"></i> 4 new messages
+                            <span class="float-right text-muted text-sm">3 mins</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-users mr-2"></i> 8 friend requests
+                            <span class="float-right text-muted text-sm">12 hours</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-file mr-2"></i> 3 new reports
+                            <span class="float-right text-muted text-sm">2 days</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                    </div>
+                </li>
+
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="/" class="brand-link">
+                <!-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                    style="opacity: .8"> -->
+                <span class="brand-text font-weight-light">AdminLTE 3</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <!-- <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> -->
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">Alexander Pierce</a>
+                    </div>
+                </div>
+
+                <!-- SidebarSearch Form -->
+                <div class="form-inline">
+                    <div class="input-group" data-widget="sidebar-search">
+                        <input class="form-control form-control-sidebar" type="search" placeholder="Search"
+                            aria-label="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-sidebar">
+                                <i class="fas fa-search fa-fw"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+                        <li class="nav-item menu-open">
+                            <a href="/" class="nav-link active {% block dashboard %}{% endblock dashboard %} ">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <!-- {% if myRequest|length != 0 %} -->
+                        
+                        <li class="nav-item">
+                            <a style="cursor:pointer;" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    My Requests
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right"><!-- {{myRequest|length}} -->1</span> 
+                                </p>
+                            </a>
+                             <!-- {% load poll_extras %} -->
+
+                            <!-- {% for request in myRequest %} -->
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <!-- <a href="/request/{{request.bloodGroup|lower}}-blood-request-by-{{request.name|replace_all_space}}/{{request.id}}/" class="nav-link"> -->
+                                    <a href="/request.html/A+-blood-request-by-jimam-tamimi/23/" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p><!-- {{request.bloodGroup}} --> A+ Blood Request 1<!-- {{forloop.counter}} --></p>
+                                    </a>
+                                </li>
+                            </ul>                
+                            <!-- {% endfor %} -->
+
+                        </li>
+                        <!-- {% endif %} -->
+
+
+
+                        <li class="nav-item">
+                            <a href="/help-people.html/"
+                                class="nav-link   ">
+                                <i class="nav-icon far fa-calendar-alt"></i>
+                                <p>
+                                    Help People
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/make-request.html"
+                                class="nav-link  ">
+                                <i class="nav-icon far fa-calendar-alt"></i>
+                                <p>
+                                    Make A Request
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/on-going-works.html"
+                                class="nav-link ">
+                                <i class="nav-icon far fa-calendar-alt"></i>
+                                <p>
+                                    On Going Works
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/your-requests.html"
+                                class="nav-link ">
+                                <i class="nav-icon far fa-calendar-alt"></i>
+                                <p>
+                                    Your Requests
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/your-donor-request.html"
+                                class="nav-link">
+                                <i class="nav-icon far fa-calendar-alt"></i>
+                                <p>
+                                    Your Donor Requests
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-header">Contacts Options</li>
+                        <li class="nav-item">
+                            <a href="/messages.html" class="nav-link ">
+                                <i class="nav-icon far fa-calendar-alt"></i>
+                                <p>
+                                    Messages
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/notifications.html"
+                                class="nav-link ">
+                                <i class="nav-icon fas fa-columns"></i>
+                                <p>
+                                    Notifications
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/collections.html" class="nav-link">
+                                <i class="nav-icon fas fa-columns"></i>
+                                <p>
+                                    Collections
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-header">Profile Options</li>
+                        <li class="nav-item">
+                            <a href="/profile.html" class="nav-link ">
+                                <i class="nav-icon fas fa-columns"></i>
+                                <p>
+                                    My Profile
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-header">Settings</li>
+
+                        <li class="nav-item mb-2 active" >
+                            <a href="" class="nav-link " id="settings">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Settings
+                                    <i class="fas fa-angle-left right"></i>
+                                    <!-- {% comment %} <span class="badge badge-info right">6</span> {% endcomment %} -->
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item ">
+                                    <a href="/settings/privacy.html"
+                                        class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Privacy</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="/settings/edit-account.html"
+                                        class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Edit Account</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="/settings/edit-profile.html"
+                                        class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Edit Profile</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/settings/change-password.html"
+                                        class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Change Password</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div id="container-parent" style="margin-top: 57px;" class="content-wrapper">
+
+            <!-- messeges and alerets here  -->
+            
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                This is a demo success alert!!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            
+
+            <!-- content 
+                
+            here  -->
+
+            
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Request</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Request</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+
+<div class="modal fade" id="viewImageModal" tabindex="-1" aria-labelledby="viewImageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <!-- <img src="/media/blood/request-img/1.webp" alt=""> -->
+        <img style="max-width: 100%;" src="img/blood/request-img/2.jpg">
+    </div>
+</div>
+<div class="modal fade" id="viewDonorImgModal" tabindex="-1" aria-labelledby="viewDonorImgModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <!-- <img src="/media/blood/request-img/1.webp" alt=""> -->
+        <img style="max-width: 100%;" src="img/blood/request-img/2.jpg">
+    </div>
+</div>
+
+
+<ul class="nav nav-tabs ml-2" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button style="outline: none; border: none;" class="nav-link active" id="request-tab" data-bs-toggle="tab"
+            data-bs-target="#request" type="button" role="tab" aria-controls="request"
+            aria-selected="true">Request</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <!-- {% if user == 'requester' %} -->
+        <button style="outline: none; border: none;" class="nav-link" id="donor-tab" data-bs-toggle="tab"
+            data-bs-target="#donor" type="button" role="tab" aria-controls="donor" aria-selected="false">All Donor
+            Request</button>
+        <!-- {% else %} -->
+        <button style="outline: none; border: none;" class="nav-link" id="donor-tab" data-bs-toggle="tab"
+            data-bs-target="#donor" type="button" role="tab" aria-controls="donor" aria-selected="false">My Donor
+            Request</button>
+        <!-- {% endif %} -->
+
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <!-- {% comment %} the request section {% endcomment %} -->
+    <div class="tab-pane fade show active" id="request" role="tabpanel" aria-labelledby="request-tab">
+        <div class="card  py-3 mb-0 " style="">
+
+            <div class="d-flex my-cus-row justify-content-evenly align-items-center ">
+                <div style="background-image: url(/media{{image}}); min-height: 552px; background-position: center center; background-size: cover; background-repeat: no-repeat; cursor: pointer;"
+                    class="image-section bg-primary" data-bs-toggle="modal" data-bs-target="#viewImageModal">
+
+                </div>
+
+
+                <div class="details-section">
+                    <div class="card-body">
+                        <h4 class="card-title text-decoration-underline mb-2">Posted By:</h4>
+                        <div style="">
+
+                            <p class="card-text m-0 my-3 "><a style="" href="#">
+                                    <span>
+                                        <div
+                                            style="width: 30px; height:30px; background: url(/img/blood//request-img/2.jpg); background-position: center center; background-repeat: no-repeat; background-size: cover; border-radius: 200px;">
+                                        </div>
+                                        <?</span>
+                                    <span> - JImam tamimi</span>
+                                </a></p>
+
+                        </div>
+
+                        <div style="right: 20px; top:100px;"
+                            class="request-status d-inline-flex flex-column float-right position-absolute">
+                            <h5 class="m-1"><span class="badge bg-primary float-right">1 request with you</span> </h5>
+
+                            <!-- {% if user == 'requester' %} -->
+                            <h5 class=" m-1"><span class="badge bg-primary float-right">Posted By You</span> </h5>
+                            
+                            <!-- {% else %} -->
+
+                            <!-- {% endif %} -->
+                            <!-- {% comment %} <h5 class="float-end  m-1"><span class="badge bg-primary float-right">0
+                                    Request
+                                    Got</span> </h5> {% endcomment %} -->
+                        </div>
+
+                        <h4 class="card-title text-decoration-underline">Other Details:</h4>
+                        <p class="card-text m-0 my-2 ">Blood Group: <b class="ml-1">{{bloodGroup}}</b></p>
+                        <p class="card-text m-0 my-2 ">Address: <b class="ml-1">{{address}}</b></p>
+                        <p class="card-text m-0 my-2 ">Date: <b class="ml-1">{{date}}</b></p>
+                        <p class="card-text m-0 my-2 ">Time: <b class="ml-1">{{time}}</b></p>
+                        <p class="card-text m-0 my-2 ">Hospital: <b class="ml-1">{{hospital}}</b></p>
+                        <p class="card-text m-0 my-2 ">BLood Needed: <b class="ml-1">{{bloodNeeded}}</b></p>
+                        <p class="card-text mt-0 my-2 ">Phone: <b class="ml-1">{{number}}</b></p>
+                        <p class="card-text mt-0 my-2 ">Additional Phone No: <b class="ml-1">{{additionalNumber}}</b>
+                        </p>
+                        <p class="card-text mt-0 my-2 ">Gender: <b class="ml-1">{{gender}}</b></p>
+                        <p class="card-text mt-0 my-2 ">Age: <b class="ml-1">{{age}}</b></p>
+                        <p class="card-text mt-0 my-2 ">Weight: <b class="ml-1">{{weight}}</b></p>
+                        <h4 class="card-title text-decoration-underline">Description:</h4>
+                        <p class="card-text mt-0 my-2 fw-600">
+                            {{description}}
+                        </p>
+                        <div class="act-button-grp">
+                          <!-- {% if user == 'requester' %} -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editHelpFormModal"> Edit Request</button>
+                            
+                            <button type="button" class=" btn  btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete Request</button>
+
+                            <!-- {% elif user == 'viewer' %} -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#helpFormModal">Send Request</button>
+                            
+                            <button type="button" class=" btn mr-3 btn-danger" data-bs-toggle="modal" data-bs-target="#reportModal">Report</button>
+                            <!-- {% endif %} -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="tab-pane fade" id="donor" role="tabpanel" aria-labelledby="donor-tab">
+    <!-- {% if user == 'requester' %}
+        {% comment %} All donator section  {% endcomment %} -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Profile</th>
+                    <th scope="col">Blood Group</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <th scope="row">1</th>
+                    <td class="profile"><a class="profile-cont" href="#">
+                            <div class="profile-img" style="background: url(/img/blood/request-img/2.jpg);"> </div> <span>Jimam Tamimi</span>
+                        </a></td>
+                    <td>A+</td>
+                    <td>Pabna Sadar Hospital at Pabna Rajshahi</td>
+                    <td>Sunday 24 December 2021 at 11:30 am</td>
+                    <td>
+                        <div class="d-flex">
+                            <a href="#" class="btn-sm btn-primary mr-3 ">View</a>
+                            <a href="#" class="btn-sm btn-danger ">MEssage</a>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    <!-- {% else %}
+        {% comment %} My donor request section  {% endcomment %} -->
+        <div class="card  py-3" >
+
+            <div class="d-flex my-cus-row justify-content-evenly align-items-center ">
+                <div style="background-image: url(/img/blood/request-img/2.jpg); min-height: 552px; background-position: center center; background-size: cover; background-repeat: no-repeat; cursor: pointer;"
+                    class="image-section bg-primary" data-bs-toggle="modal" data-bs-target="#viewDonorImgModal">
+                </div>
+
+
+                <div class="details-section">
+                    <div class="card-body">
+                        <h4 class="card-title text-decoration-underline mb-2">Posted By:</h4>
+                        <p class="card-text m-0 my-3 "><a style="" href="#"><img
+                                    style="width: 30px; border-radius: 200px;" src="/img/blood/request-img/1.webp"
+                                    alt=""> <span> - Jimam Tamimi</span></a></p>
+
+
+                        <div style="right: 20px; top:100px;"
+                            class="request-status d-inline-flex flex-column float-right position-absolute">
+                            
+                            <h5 class="float-end  m-1"><span class="badge bg-primary float-right">Accepted</span> </h5>
+                        </div>
+
+                        <h4 class="card-title text-decoration-underline">Other Details:</h4>
+                        <p class="card-text m-0 my-2 ">Blood Group: <b class="ml-1">A+</b></p>
+                        <p class="card-text m-0 my-2 ">Address: <b class="ml-1">Sujanagar Upazila Pabna</b></p>
+                        <p class="card-text m-0 my-2 ">Date: <b class="ml-1">Tuesday 23 February 2021</b></p>
+                        <p class="card-text m-0 my-2 ">Time: <b class="ml-1">10:20 AM</b></p>
+                        <p class="card-text m-0 my-2 ">Hospital: <b class="ml-1">Pabna Sadar</b></p>
+                        <p class="card-text m-0 my-2 ">BLood Needed: <b class="ml-1">1 bag (400ml)</b></p>
+                        <p class="card-text mt-0 my-2 ">Phone: <b class="ml-1">01712849741</b></p>
+                        <p class="card-text mt-0 my-2 ">Additional Phone No: <b class="ml-1">01712849741</b></p>
+                        <p class="card-text mt-0 my-2 ">Age: <b class="ml-1">01712849741</b></p>
+                        <p class="card-text mt-0 my-2 ">Weight: <b class="ml-1">01712849741</b></p>
+                        <h4 class="card-title text-decoration-underline">Description:</h4>
+                        <p class="card-text mt-0 my-2 fw-600">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                            Rerum
+                            doloremque ad dolores? Natus excepturi, provident aliquid nemo itaque sit aspernatur
+                            molestiae velit
+                            possimus at numquam in corrupti a quos ipsa debitis tempore nostrum veniam culpa.</p>
+                        <div class="act-button-grp">
+                            
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editHelpFormModal">Edit Donor Request</button>
+                            
+                            <button type="button" class=" btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete Donor Request</button>
+                            <!-- Button trigger modal -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- {% endif %} -->
+
+
+
+    </div>
+
+</div>
+
+
+
+
+
+<!-- Modal -->
+
+
+<!-- donor section modals  -->
+
+<!-- editHelpFormModal -->
+<!-- {% if user == 'requester' %} -->
+<div class="modal fade" id="editHelpFormModal" tabindex="-1" aria-labelledby="editHelpFormModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog  modal-lg modal-dialog-centered">
+        <div style="    min-height: 516px;
+        " class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editHelpFormModalLabel">Edit Your Help Form</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="i-am-giving" style="display:flex; justify-content: flex-end;
+                margin-right: 3px;">
+                    <button id="i-am-taking" class="btn btn-primary ">Back To Normal</button>
+                </div>
+
+                <form id='' action="/request/update/" method="POST" class="row g-3 " enctype="multipart/form-data">
+                    <!-- {% csrf_token %} -->
+                    <input required  type="hidden" id="id" name="id" value="{{id}}">
+
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Name Of Taker *</label>
+                        <input required  type="text" class="form-control" placeholder="Donor Name" id="name" name="name" value="{{name}}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="time" class="form-label">When Do You Need Blood *</label>
+                        <input   required  type="datetime-local" class="form-control" id="time" name="time"  value="{{bloodNeedTime}}">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputAddress" class="form-label">Address *</label>
+                        <input  required  type="text" class="form-control" id="inputAddress" placeholder="District - UpaZila" name="address"  value="{{address}}">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="hospital" class="form-label">Hospital Name *</label>
+                        <input  required  type="text" class="form-control" id="hospital" placeholder="Hospital Name" name="hospital"  value="{{hospital}}">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="phone" class="form-label">Phone No. *</label>
+                        <input  required  type="tel" class="form-control" id="phone" placeholder="01XXXXXXXXX" name="number"  value="{{number}}">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="date-of-birth" class="form-label">Date Of Birth *</label>
+                        <input required  type="date" class="form-control" id="date-of-birth" placeholder="" name="date-of-birth"  value="{{dateOfBirth}}">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="add-phone" class="form-label">Additional Phone No.</label>
+                        <input type="tel" class="form-control" id="add-phone" placeholder="01XXXXXXXXX (additional)" name="additional-number"  value="{{additionalNumber}}">
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <label for="email" class="form-label">Email *</label>
+                        <input  required  type="email" class="form-control" id="email" placeholder="name@mail.com (Optional)" name="email"  value="{{email}}">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="blood-needed" class="form-label">How Much Blood Do You Need? (ml)*</label>
+                        <input  required  type="number" class="form-control" id="blood-needed" placeholder="How Much Blood Do You Need? (ml)" name="blood-needed"  value="{{bloodNeeded}}">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="blood-group" class="form-label">Blood Group *</label>
+                        <select  required  name="blood-group" id="blood-group" class="form-select">
+                            <option disabled selected>Select</option>
+                            <option {% if bloodGroup == 'A+'%}selected{% endif %} >A+</option>
+                            <option {% if bloodGroup == 'B+'%}selected{% endif %}  >B+</option>
+                            <option {% if bloodGroup == 'AB+'%}selected{% endif %}  >AB+</option>
+                            <option {% if bloodGroup == 'O+'%}selected{% endif %}  >O+</option>
+                            <option {% if bloodGroup == 'A-'%}selected{% endif %}  >A-</option>
+                            <option {% if bloodGroup == 'B-'%}selected{% endif %} >B-</option>
+                            <option {% if bloodGroup == 'AB-'%}selected{% endif %} >AB-</option>
+                            <option {% if bloodGroup == 'O-'%}selected{% endif %} >O-</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="weight" class="form-label">Weight *</label>
+                        <input   required  type="number" class="form-control" id="weight" placeholder="PLease enter your weight (Kg)" name="weight"  value="{{weight}}">
+                    </div>
+
+                    <div class="col-12">
+                        Gender *
+
+                        <div class="form-check form-switch ml-4">
+                            <input {% if gender == 'Male'%}checked{% endif %}   required   class="form-check-input" type="radio" name="gender" id="Male" value="Male" >
+                            <label class="form-check-label" for="male">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check form-switch ml-4">
+                            <input  {% if gender == 'Female'%}checked{% endif %}  required class="form-check-input" type="radio" name="gender" id="Fmale" value="Female">
+                            <label class="form-check-label" for="female">
+                                Female
+                            </label>
+                        </div>
+                        <div class="form-check form-switch ml-4">
+                            <input  {% if gender == 'Other'%}checked{% endif %}  required class="form-check-input" type="radio" name="gender" id="Other" value="Other">
+                            <label class="form-check-label" for="other" >
+                                Other
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mb-1">
+                        <label for="formFile" class="form-label">A picture of taker (optional)</label>
+                        <input name="image" class="form-control" type="file" id="formFile">
+                        </div>
+                    
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <textarea id="edit-description" required name="description" class="form-control" placeholder="Please Leave A description" id="floatingTextarea2"
+                                style="height: 150px">{{description}}</textarea>
+                            <label for="floatingTextarea2">Please Leave A Small Description.  *</label>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <input type="submit" class="btn btn-primary" value="Update" name="update" />
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Delete Form  -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Enter Details To Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Why Do You Want TO Delete This Request?"
+                                id="floatingTextarea2" style="height: 300px"></textarea>
+                            <label for="floatingTextarea2">Why Do You Want TO Delete This Request?</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- {% elif user == 'viewer' %} -->
+
+<!-- Report Form  -->
+<div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="reportModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Why You Are Reporting This Request?"
+                                id="floatingTextarea2" style="height: 300px"></textarea>
+                            <label for="floatingTextarea2">Why You Are Reporting This Request?</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Help form  -->
+<div class="modal fade" id="helpFormModal" tabindex="-1" aria-labelledby="helpFormModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg modal-dialog-centered">
+        <div style="    min-height: 516px;
+        " class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="helpFormModalLabel">Help Form</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form  class="row g-3 ">
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Name Of Donor</label>
+                        <input type="text" class="form-control" id="name" placeholder="Donor Name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="time" class="form-label">When You Can Come</label>
+                        <input type="datetime-local" class="form-control" id="time">
+                    </div>
+                    <div class="col-12">
+                        <label for="inputAddress" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="District - UpaZila">
+                    </div>
+
+                    <div class="col-5">
+                        <label for="phone" class="form-label">Phone No.</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="01XXXXXXXXX">
+                    </div>
+                    <div class="col-4">
+                        <label for="add-phone" class="form-label">Additional Phone No.</label>
+                        <input type="tel" class="form-control" id="add-phone" placeholder="01XXXXXXXXX (additional)">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="age" class="form-label">Date Of Birth</label>
+                        <input type="date" class="form-control" id="age">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="inputState" class="form-label">Blood Group</label>
+                        <select id="inputState" class="form-select">
+                            <option disabled selected>Select</option>
+                            <option>A+</option>
+                            <option>B+</option>
+                            <option>AB+</option>
+                            <option>O+</option>
+                            <option>A-</option>
+                            <option>B-</option>
+                            <option>AB-</option>
+                            <option>O-</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputZip" class="form-label">Last Donated</label>
+                        <input type="date" class="form-control" id="inputZip">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="weight" class="form-label">Weight</label>
+                        <input type="number" class="form-control" id="weight" placeholder="Your Weight">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="age" class="form-label">Age</label>
+                        <input type="number" class="form-control" id="age" placeholder="Your Age">
+                    </div>
+                    <div class="col-12">
+                        Gender
+
+                        <div class="form-check form-switch ml-4">
+                            <input required class="form-check-input" type="radio" name="flexRadioDefault"
+                                id="male">
+                            <label class="form-check-label" for="male">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check form-switch ml-4">
+                            <input required class="form-check-input" type="radio" name="flexRadioDefault"
+                                id="female">
+                            <label class="form-check-label" for="female">
+                                Female
+                            </label>
+                        </div>
+                        <div class="form-check form-switch ml-4">
+                            <input required class="form-check-input" type="radio" name="flexRadioDefault"
+                                id="other">
+                            <label class="form-check-label" for="other">
+                                Other
+                            </label>
+                        </div>
+                    </div>
+                    
+
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Please Leave A description" id="floatingTextarea2" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">Please Leave A description</label>
+                          </div>
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Send Request</button>
+                    </div>
+                </form>
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- {% endif %} -->
+
+
+
+            <!-- /.content-header -->
+        </div>
+        <!-- /.content-wrapper -->
+        <footer id="footer" class="main-footer">
+            <strong>Copyright &copy; 2014-2020 <a href="#">Blood Support</a>.</strong>
+            All rights reserved.
+            <!-- <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 3.1.0-rc
+            </div> -->
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    <script>
+        function activeDropdown(activeElmDropDown, inactiveElmDropDown) {
+
+            document.getElementById(activeElmDropDown).classList.toggle('__not-blank')
+            document.getElementById(inactiveElmDropDown).classList.remove('__not-blank')
+        }
+
+        document.getElementById('__message-icon').addEventListener('click', () => {
+            activeDropdown("__message-dropdown-menu", "__notification-dropdown-menu")
+        })
+        document.getElementById('__notification-icon').addEventListener('click', () => {
+            activeDropdown("__notification-dropdown-menu", "__message-dropdown-menu")
+        })
+
+        var form = document.getElementById("form-id");
+
+        document.getElementById("submit").addEventListener("click", function () {
+        form.submit();
+        });
+
+    </script>
+
+
+    <!-- jQuery -->
+
+    <script src="js/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+
+    <!-- Bootstrap 4 -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="js/adminlte.js"></script>
+    <!-- AdminLTE for demo purposes -->
+</body>
+
+</html>
